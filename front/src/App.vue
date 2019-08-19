@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <el-menu default-active="1" class="el-menu-demo" mode="horizontal">
+    <el-menu class="el-menu-demo" mode="horizontal">
       <el-menu-item index="1">
         <router-link to="/">
           <el-link :underline="false">首页</el-link>

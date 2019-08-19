@@ -12,9 +12,6 @@
                 <template slot="prepend">{{i.d}}</template>
               </el-input>
             </el-form-item>
-            <!-- <el-form-item>
-            <el-button type="primary">查询</el-button>
-            </el-form-item>-->
           </el-form>
         </el-card>
 
@@ -46,14 +43,32 @@
       </el-tab-pane>
       <el-tab-pane label="录入数据">
         <el-form :inline="true">
-          <el-form-item>
-            <el-input placeholder="请输入内容" v-model="test">
-              <template slot="prepend">{{i.d}}</template>
-            </el-input>
-          </el-form-item>
-          <!-- <el-form-item>
-            <el-button type="primary">查询</el-button>
-          </el-form-item>-->
+          <el-card class="box-card">
+            <div slot="header" class="clearfix">
+              <span>日期</span>
+            </div>
+            <el-form-item>
+              <el-date-picker
+                v-model="beef.time"
+                type="date"
+                placeholder="选择日期">
+              </el-date-picker>
+            </el-form-item>
+          </el-card>
+        </el-form>
+        <el-form :inline="true">
+          <el-card class="box-card" v-for="item in beef.specs">
+            <div slot="header" class="clearfix">
+              <span>{{item.d}}</span>
+            </div>
+            <!-- <div v-for="o in 4" :key="o" class="text item">
+              {{'列表内容 ' + o }}
+            </div> -->
+            <el-form-item v-for="i in item.v" :label="i.d">
+              <el-input-number v-model="i.v" :min="0" label="描述文字"></el-input-number>
+              <!-- <el-input placeholder="请输入内容" v-model="i.v"></el-input> -->
+            </el-form-item>
+          </el-card>
         </el-form>
       </el-tab-pane>
     </el-tabs>
